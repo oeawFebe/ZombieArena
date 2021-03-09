@@ -5,8 +5,8 @@ class Player
 {
 private:
 	const float START_SPEED = 200;
-	const float START_Health = 100;
-	Vector2f m_Position;
+	const float START_HEALTH = 100;
+	Vector2f m_Position;//center of sprite coordinate
 	Sprite m_Sprite;
 	//
 	Texture m_Texture;
@@ -24,7 +24,7 @@ private:
 	//
 public:
 	Player();
-	void spwan(IntRect arena, Vector2f resolution, int tileSize);
+	void spawn(IntRect arena, Vector2f resolution, int tileSize);
 	void resetPlayerStats();//call this at the end of every game
 	//handle player getting hit by zombie
 	bool hit(Time timeHit);
