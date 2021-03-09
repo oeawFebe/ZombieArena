@@ -68,7 +68,7 @@ void Player::update(float elapsedTime,Vector2i mousePosition)
 	if (m_UpPressed){m_Position.y -= m_Speed * elapsedTime;}
 	if (m_DownPressed){m_Position.y += m_Speed * elapsedTime;}
 	if (m_RightPressed){m_Position.x += m_Speed * elapsedTime;}
-	if (m_LeftPressed){m_Position.y -= m_Speed * elapsedTime;}
+	if (m_LeftPressed){m_Position.x -= m_Speed * elapsedTime;}
 	m_Sprite.setPosition(m_Position);
 	if (m_Position.x > m_Arena.width - m_TileSize) { m_Position.x = m_Arena.width - m_TileSize; }
 	if (m_Position.x < m_Arena.left + m_TileSize) { m_Position.x = m_Arena.left + m_TileSize; }

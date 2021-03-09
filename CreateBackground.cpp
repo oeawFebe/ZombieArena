@@ -16,9 +16,9 @@ int createBackground(VertexArray& rVA, IntRect arena)
 		{
 			//position each vertex in current quad
 			rVA[currentVertex + 0].position = Vector2f(w * TILE_SIZE, h * TILE_SIZE);
-			rVA[currentVertex + 1].position = Vector2f(w * (TILE_SIZE+1), h * TILE_SIZE);
-			rVA[currentVertex + 2].position = Vector2f(w * (TILE_SIZE+1), h * (TILE_SIZE+1));
-			rVA[currentVertex + 3].position = Vector2f(w * TILE_SIZE, h * (TILE_SIZE+1));
+			rVA[currentVertex + 1].position = Vector2f((w+1) * TILE_SIZE, h * TILE_SIZE);
+			rVA[currentVertex + 2].position = Vector2f((w + 1) * TILE_SIZE, (h + 1) * TILE_SIZE);
+			rVA[currentVertex + 3].position = Vector2f(w * TILE_SIZE, (h + 1) * TILE_SIZE);
 			// define position in the texture for current quad
 			if (h == 0 || h == worldHeight - 1 || w == 0 || w == worldWidth - 1) 
 			{
