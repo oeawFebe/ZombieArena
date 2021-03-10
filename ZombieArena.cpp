@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "ZombieArena.h"
 #include "TextureHolder.h"
+#include "Bullet.h"
 using namespace sf;
 int main()
 {
@@ -22,13 +23,21 @@ int main()
 	IntRect arena;
 	//create background
 	VertexArray background;
-	Texture textureBackground;
-	textureBackground.loadFromFile("graphics/background_sheet.png");
+	//load the texture for our background vertex arrey
+	Texture textureBackground = TextureHolder::GetTexture("graphics/background_sheet.png");
 	//prepare for hoarde of zombies
 	int numZombies;
 	int numZombiesAlive;
 	Zombie* zombies = nullptr;
-
+	// 100 bullets should do
+	Bullet bullets[100];
+	int currentBullet = 0;
+	int bulletsSpare = 24;
+	int bulletsInClip = 6;
+	int clipSize = 6;
+	float fireRate = 1.0;
+	Time lastPressed;
+	//The main game loop
 	while (window.isOpen())
 	{
 		/*
@@ -46,7 +55,27 @@ int main()
 				if (event.key.code == Keyboard::Return && state == State::PLAYING) { state = State::PAUSED; }
 				else if (event.key.code == Keyboard::Return && state == State::PAUSED) { state = State::PLAYING; clock.restart(); }
 				else if (event.key.code == Keyboard::Return && state == State::GAME_OVER) { state = State::LEVELING_UP; }
-				if (state == State::PLAYING) { ; }
+				if (state == State::PLAYING) 
+				{
+					//Reloading
+					if (event.key.code == Keyboard::R)
+					{
+						if (bulletsSpare >= clipSize)
+						{
+							bulletsInClip = clipSize;
+							bulletsSpare -= clipSize;
+						}
+						else if (bulletsSpare > 0)
+						{
+							bulletsInClip = bulletsSpare;
+							bulletsSpare = 0;
+						}
+						else
+						{
+							;//soundcoming
+						}
+					}
+				}
 
 			}
 		}// End even polling
@@ -64,6 +93,20 @@ int main()
 			else { player.stopRight(); }
 			if (Keyboard::isKeyPressed(Keyboard::A)) { player.moveLeft(); }
 			else { player.stopLeft(); }
+			if (Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				if (gameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000/fireRate && bulletsInClip > 0)
+				{
+					bullets[currentBullet].shoot(player.getCenter().x, player.getCenter().y, mouseWorldPosition.x, mouseWorldPosition.y);
+					currentBullet++;
+					if (currentBullet > 99)
+					{
+						currentBullet = 0;
+					}
+					lastPressed = gameTimeTotal;
+					bulletsInClip--;
+				}
+			}
 		}// End WASD while playing
 		//Handle LEVELING_UP state
 		if (state == State::LEVELING_UP)
@@ -117,6 +160,11 @@ int main()
 			{
 				if (zombies[i].isAlive()) { zombies[i].update(dt.asSeconds(), playerPosition); }
 			}
+			//update any bullets that are in-flight
+			for (int i = 0;i < 100;i++)
+			{
+				if (bullets[i].isInFlight()) { bullets[i].update(dtAsSeconds); }
+			}
 		}// End Updating the scene
 
 		/*
@@ -135,6 +183,13 @@ int main()
 			for (int i = 0;i < numZombies;i++)
 			{
 				window.draw(zombies[i].getSprite());
+			}
+			for (int i = 0;i < 100;i++)
+			{
+				if (bullets[i].isInFlight())
+				{
+					window.draw(bullets[i].getShape());
+				}
 			}
 			//Draw player
 			window.draw(player.getSprite());
