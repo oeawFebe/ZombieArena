@@ -1,22 +1,32 @@
-﻿  ZombieArena.cpp
-C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(10,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+﻿  CreateHorde.cpp
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(19,8): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(20,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(23,8): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(24,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(27,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(28,8): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(31,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\CreateHorde.cpp(32,8): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  ZombieArena.cpp
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(13,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(11,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(14,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(12,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(15,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(12,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(15,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
+  Generating Code...
   Zombie Arena.vcxproj -> C:\Users\Owner\source\repos\Zombie Arena\Debug\Zombie Arena.exe
