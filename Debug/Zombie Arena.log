@@ -1,4 +1,40 @@
-﻿  ZombieArena.cpp
+﻿  Player.cpp
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(6,13): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(7,16): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(16,29): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(17,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(29,13): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(30,16): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(73,80): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(74,78): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(75,80): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(76,73): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(83,67): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  ZombieArena.cpp
 C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(16,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
           with
           [
@@ -19,9 +55,10 @@ C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(18,42): warning C4244: 
           [
               T=float
           ]
-C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(321,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(322,53): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+  Generating Code...
   Zombie Arena.vcxproj -> C:\Users\Owner\source\repos\Zombie Arena\Debug\Zombie Arena.exe

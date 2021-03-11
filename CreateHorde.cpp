@@ -7,12 +7,15 @@ Zombie* createHorde(int numZombies, IntRect arena)
 	int minY = arena.top+ 20;
 	int maxX = arena.width - 20;
 	int minX = arena.left+ 20;
+	srand((unsigned int)time(0));//movedTo 
+
 	for (int i = 0;i < numZombies;i++)
 	{
 		//which side should zombie spawn
-		srand((unsigned int)time(0)* i);
+		//srand((unsigned int)time(0)* i);MovedFrom
 		int side = (rand() % 4);
-		float x, y;
+		float x = 0.0;
+		float y=0.0;
 		switch (side)
 		{
 		case 0://left
@@ -33,7 +36,7 @@ Zombie* createHorde(int numZombies, IntRect arena)
 			break;
 		}
 		//Bloater crawler or unner
-		srand((unsigned int)time(0) * i * 2);
+		//srand((unsigned int)time(0) * i * 2);MovedFrom
 		int type = (rand() % 3);
 		zombies[i].spawn(x, y, type, i);
 	}

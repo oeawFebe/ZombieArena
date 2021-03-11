@@ -24,7 +24,7 @@ void Zombie::spawn(float startX, float startY, int type, int seed)
 		m_Health = CRAWLER_HEALTH;
 		break;
 	}
-	srand((unsigned int)time(0) * seed);
+	//srand((unsigned int)time(0) * seed);
 	float modifier = (rand() % MAX_VARRIANCE) + OFFSET;
 	modifier /= 100;
 	m_Speed *= modifier;

@@ -75,12 +75,12 @@ void Player::update(float elapsedTime,Vector2i mousePosition)
 	if (m_Position.y > m_Arena.height- m_TileSize) { m_Position.y = m_Arena.height- m_TileSize; }
 	if (m_Position.y < m_Arena.top+m_TileSize) { m_Position.y = m_Arena.top+ m_TileSize; }
 	//calculate the angle the player is facign
-	float angle = (atan2(mousePosition.y - m_Resolution.y / 2, mousePosition.x - m_Resolution.x / 2) * 180) / 3.141;
+	float angle = (atan2(mousePosition.y - m_Resolution.y / 2, mousePosition.x - m_Resolution.x / 2) * 180) / 3.141f;
 	m_Sprite.setRotation(angle);
 }
 
-void Player::upgradeSpeed() { m_Speed += (START_SPEED*.2); }
-void Player::upgradeHealth() { m_MaxHealth += (START_HEALTH * .2); }
+void Player::upgradeSpeed() { m_Speed += (START_SPEED*.2f); }
+void Player::upgradeHealth() { m_MaxHealth += (START_HEALTH * .2f); }
 void Player::increaseHealthLevel(int amount)
 {
 	m_Health = std::max(m_Health + amount, m_MaxHealth);

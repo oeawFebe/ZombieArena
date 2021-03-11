@@ -22,9 +22,9 @@ Pickup::Pickup(int type)
 
 void Pickup::spawn()
 {
-	srand((unsigned int)time(0) * m_Type);
+	//srand((unsigned int)time(0) * m_Type);
 	int x = (rand() % m_Arena.width);
-	srand((unsigned int)time(0) * m_Type);
+	//srand((unsigned int)time(0) * m_Type);
 	int y = (rand() % m_Arena.height);
 	m_SecondsSinceSpawn = 0;
 	m_Spawned = true;

@@ -5,7 +5,7 @@ class Player
 {
 private:
 	const float START_SPEED = 200;
-	const float START_HEALTH = 100;
+	const float START_HEALTH = 500;//I think 100 too small
 	Vector2f m_Position;//center of sprite coordinate
 	Sprite m_Sprite;
 	//

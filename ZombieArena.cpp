@@ -37,7 +37,7 @@ int main()
 	int bulletsSpare = 24;
 	int bulletsInClip = 6;
 	int clipSize = 6;
-	float fireRate = 1.0;
+	float fireRate = 3.0;//I think 1.0 too small
 	Time lastPressed;
 	//mouse pointer to crosshair
 	window.setMouseCursorVisible(false);
@@ -75,7 +75,7 @@ int main()
 	gameOverText.setCharacterSize(125);
 	gameOverText.setFillColor(Color::White);
 	gameOverText.setPosition(250, 850);
-	gameOverText.setString("Press Enter to paly");
+	gameOverText.setString("Press Enter to play");
 	//leveling up
 	Text levelUpText;
 	levelUpText.setFont(font);
@@ -130,7 +130,7 @@ int main()
 	debugText.setPosition(20,220);
 	std::stringstream ss;
 	int framesSinceLastHUDUpdate = 0;
-	int fpsMeasurementFrameInterval = 1000;
+	int fpsMeasurementFrameInterval = 200;
 
 	//The main game loop
 	while (window.isOpen())
@@ -225,6 +225,7 @@ int main()
 				int tileSize = createBackground(background, arena);
 				//spawn player in the middle of arena
 				player.spawn(arena, resolution, tileSize);
+				player.resetPlayerStats();//I think it is necessary
 				//configure pickups
 				healthPickup.setArena(arena);
 				ammoPickup.setArena(arena);
@@ -318,7 +319,7 @@ int main()
 				bulletsSpare+=ammoPickup.gotIt();
 			}
 			//size up healthbar
-			healthBar.setSize(Vector2f(player.getHealth() * 3, 50));
+			healthBar.setSize(Vector2f(player.getHealth() * 3/5, 50));//instead of 3, 3/5
 			//increment num of frames
 			framesSinceLastHUDUpdate++;
 			//recalculate every fps measurement
