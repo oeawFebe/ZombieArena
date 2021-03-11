@@ -143,6 +143,8 @@ int main()
 				//configure pickups
 				healthPickup.setArena(arena);
 				ammoPickup.setArena(arena);
+				healthPickup.spawn();//?
+				ammoPickup.spawn();//?
 				//create horde of zombies
 				numZombies = 10;
 				//delete priviously allocated memory (if it exists)

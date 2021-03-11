@@ -1,5 +1,6 @@
 #include "Pickup.h"
 #include "TextureHolder.h"
+#include <SFML/Graphics.hpp>//?
 Pickup::Pickup(int type)
 {
 	m_Type = type;
@@ -27,7 +28,12 @@ void Pickup::spawn()
 	int y = (rand() % m_Arena.height);
 	m_SecondsSinceSpawn = 0;
 	m_Spawned = true;
-	m_Sprite.setPosition(x*100, y*100 );// x y too small? 
+	float xf=x;//?
+	float yf=y;//?
+	Vector2f pp;//?
+	pp.x = xf;//?
+	pp.y = yf;//?
+	m_Sprite.setPosition(pp);// x y too small? 
 }
 FloatRect Pickup::getPosition()
 {

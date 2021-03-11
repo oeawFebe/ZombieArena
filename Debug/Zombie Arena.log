@@ -1,8 +1,8 @@
 ﻿  Pickup.cpp
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(18,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
 C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(19,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(30,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(30,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(70,39): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(74,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(20,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(31,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(32,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(76,39): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(80,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   Zombie Arena.vcxproj -> C:\Users\Owner\source\repos\Zombie Arena\Debug\Zombie Arena.exe
