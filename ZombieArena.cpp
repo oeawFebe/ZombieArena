@@ -1,3 +1,4 @@
+#include <sstream>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "ZombieArena.h"
@@ -47,6 +48,90 @@ int main()
 	//create a few pickups
 	Pickup healthPickup(1);
 	Pickup ammoPickup(2);
+	//about the game
+	int score = 0;
+	int hiScore = 0;
+	//for home and gameover screen
+	Sprite spriteGameOver;
+	Texture textureGameOver = TextureHolder::GetTexture("graphics/background.png");
+	spriteGameOver.setTexture(textureGameOver);
+	spriteGameOver.setPosition(0, 0);
+	View hudView(FloatRect(0, 0, resolution.x, resolution.y));
+	Sprite spriteAmmoIcon;
+	Texture textureAmmoIcon = TextureHolder::GetTexture("graphics/ammo_icon.png");
+	spriteAmmoIcon.setTexture(textureAmmoIcon);
+	spriteAmmoIcon.setPosition(20, 980);
+	Font font;
+	font.loadFromFile("fonts/zombiecontrol.ttf");
+	Text pausedText;
+	pausedText.setFont(font);
+	pausedText.setCharacterSize(155);
+	pausedText.setFillColor(Color::White);
+	pausedText.setPosition(400, 400);
+	pausedText.setString("Press Enter \nto continue");
+	//Game Over
+	Text gameOverText;
+	gameOverText.setFont(font);
+	gameOverText.setCharacterSize(125);
+	gameOverText.setFillColor(Color::White);
+	gameOverText.setPosition(250, 850);
+	gameOverText.setString("Press Enter to paly");
+	//leveling up
+	Text levelUpText;
+	levelUpText.setFont(font);
+	levelUpText.setCharacterSize(80);
+	levelUpText.setFillColor(Color::White);
+	levelUpText.setPosition(150, 250);
+	std::stringstream levelUpStream;
+	levelUpStream << "1-Increased rate of fire" << "\n2-Increased clip size(next reload)" << "\n3-Increased Max health" << "\n4-Increased run speed" << "\n5-More and better health pickups" << "\n6-More and better ammo pickups";
+	levelUpText.setString(levelUpStream.str());
+	//Ammo
+	Text ammoText;
+	ammoText.setFont(font);
+	ammoText.setCharacterSize(55);
+	ammoText.setFillColor(Color::White);
+	ammoText.setPosition(200, 980);
+	//score
+	Text scoreText;
+	scoreText.setFont(font);
+	scoreText.setCharacterSize(55);
+	scoreText.setFillColor(Color::White);
+	scoreText.setPosition(20, 0);
+	//hiScore
+	Text hiScoreText;
+	hiScoreText.setFont(font);
+	hiScoreText.setCharacterSize(55);
+	hiScoreText.setFillColor(Color::White);
+	hiScoreText.setPosition(1400, 0);
+	std::stringstream s;
+	s << "Hi Score:" << hiScore;
+	hiScoreText.setString(s.str());
+	Text zombiesRemainingText;
+	zombiesRemainingText.setFont(font);
+	zombiesRemainingText.setCharacterSize(55);
+	zombiesRemainingText.setFillColor(Color::White);
+	zombiesRemainingText.setPosition(1500, 980);
+	zombiesRemainingText.setString("Zombies:100");
+	int wave = 0;
+	Text waveNumberText;
+	waveNumberText.setFont(font);
+	waveNumberText.setCharacterSize(55);
+	waveNumberText.setFillColor(Color::White);
+	waveNumberText.setPosition(1250, 980);
+	waveNumberText.setString("Wave:0");
+	RectangleShape healthBar;
+	healthBar.setFillColor(Color::Red);
+	healthBar.setPosition(450, 980);
+
+	Text debugText;
+	debugText.setFont(font);
+	debugText.setCharacterSize(25);
+	debugText.setFillColor(Color::White);
+	debugText.setPosition(20,220);
+	std::stringstream ss;
+	int framesSinceLastHUDUpdate = 0;
+	int fpsMeasurementFrameInterval = 1000;
+
 	//The main game loop
 	while (window.isOpen())
 	{
@@ -185,6 +270,77 @@ int main()
 			//update pickups
 			healthPickup.update(dtAsSeconds);
 			ammoPickup.update(dtAsSeconds);
+
+			//Collision detection
+			//have zombie been shot?
+			for (int i = 0;i < 100;i++)
+			{
+				for (int j = 0;j < numZombies;j++)
+				{
+					if(bullets[i].isInFlight()&&zombies[j].isAlive())
+					{
+						if (bullets[i].getPosition().intersects(zombies[j].getPosition()))
+						{ 
+							bullets[i].stop(); 
+							if (zombies[j].hit())
+							{
+								score += 10;
+								if (score >= hiScore) { hiScore = score; } 
+								numZombies--; 
+								if(numZombiesAlive==0){state=State::LEVELING_UP;}
+							}
+						}
+					}
+				}
+			}
+			//have zombies touched player
+			for (int i = 0;i < numZombies;i++)
+			{
+				if (player.getPosition().intersects(zombies[i].getPosition()) && zombies[i].isAlive())
+				{
+					if(player.hit(gameTimeTotal))
+					{;}//
+					if (player.getHealth() <= 0)
+					{
+						state=State::GAME_OVER;
+					}
+					
+				}
+			}
+			//has player touched picukp(Hleath)
+			if (player.getPosition().intersects(healthPickup.getPosition()) && healthPickup.isSpawned())
+			{
+				player.increaseHealthLevel(healthPickup.gotIt());
+			}
+			//has player touched picukp(ammo)
+			if (player.getPosition().intersects(ammoPickup.getPosition()) && ammoPickup.isSpawned())
+			{
+				bulletsSpare+=ammoPickup.gotIt();
+			}
+			//size up healthbar
+			healthBar.setSize(Vector2f(player.getHealth() * 3, 50));
+			//increment num of frames
+			framesSinceLastHUDUpdate++;
+			//recalculate every fps measurement
+			if (framesSinceLastHUDUpdate > fpsMeasurementFrameInterval)
+			{
+				std::stringstream ssAmmo, ssScore, ssHiScore, ssWave, ssZombiesAlive;
+				ssAmmo << bulletsInClip << "/" << bulletsSpare;
+				ammoText.setString(ssAmmo.str());
+				ssScore << "Score:" << score;
+				scoreText.setString(ssScore.str());
+				//update high score text
+				ssHiScore << "Hi Score:" << hiScore;
+				hiScoreText.setString(ssHiScore.str());
+				//update wave
+				ssWave << "Wave:" << wave;
+				waveNumberText.setString(ssWave.str());
+				ssZombiesAlive << "Zombies:" << numZombiesAlive;
+				zombiesRemainingText.setString(ssZombiesAlive.str());
+				framesSinceLastHUDUpdate = 0;
+				
+			}//end hud update
+
 		}// End Updating the scene
 
 		/*
@@ -219,19 +375,31 @@ int main()
 			if (healthPickup.isSpawned()) { window.draw(healthPickup.getSprite()); }
 			//draw crosshair
 			window.draw(spriteCrosshair);
-
+			//switch to HUD view
+			window.setView(hudView);
+			window.draw(spriteAmmoIcon);
+			window.draw(ammoText);
+			window.draw(scoreText);
+			window.draw(hiScoreText);
+			window.draw(healthBar);
+			window.draw(waveNumberText);
+			window.draw(zombiesRemainingText);
 		}
 		if (state == State::LEVELING_UP)
 		{
-
+			window.draw(spriteGameOver);
+			window.draw(levelUpText);
 		}
 		if (state == State::PAUSED)
 		{
-
+			window.draw(pausedText);
 		}
 		if (state == State::GAME_OVER)
 		{
-
+			window.draw(spriteGameOver);
+			window.draw(gameOverText);
+			window.draw(scoreText);
+			window.draw(hiScoreText);
 		}
 		window.display();
 

@@ -1,8 +1,27 @@
-﻿  Pickup.cpp
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(19,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(20,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(31,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(32,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(76,39): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(80,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+﻿  ZombieArena.cpp
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(16,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(17,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(18,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(18,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Owner\source\repos\Zombie Arena\ZombieArena.cpp(321,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
   Zombie Arena.vcxproj -> C:\Users\Owner\source\repos\Zombie Arena\Debug\Zombie Arena.exe
