@@ -1,39 +1,8 @@
-﻿  Player.cpp
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(6,13): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(7,16): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(16,29): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(17,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(29,13): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(30,16): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(73,80): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(74,78): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(75,80): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(76,73): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(78,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(82,58): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Owner\source\repos\Zombie Arena\Player.cpp(83,66): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+﻿  Pickup.cpp
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(18,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(19,20): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(30,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(30,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(70,39): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Owner\source\repos\Zombie Arena\Pickup.cpp(74,37): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   Zombie Arena.vcxproj -> C:\Users\Owner\source\repos\Zombie Arena\Debug\Zombie Arena.exe
